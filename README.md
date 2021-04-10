@@ -1,15 +1,36 @@
 **Title**
-----
-  <_Additional information about your API call. Try to use verbs that match both request type (fetching vs modifying) and plurality (one vs multiple)._>
+----------------------------------------------------------
+  HOW TO DO IT
+-----------------------------------------------------------
+
+Create java maven project : MongoDB Service
+This project will setup a connection to a mongodb,
+Will setup the actual data manipulation with the database
+
+Create java maven project : StoreService
+This Project will create the api, all the endpoints
+API Functions and routes, 
+
+Create java maven project : DomainDriven Service
+This project will create the integration, should this be required to 
+For the api to be able to speak to the database in a form of a service
 
 * **URL**
+PRODUCT------------
+localhost:8080/momentum-active/products : GET
+localhost:8080/momentum-active/product/{id} : GET 
 
-  <_The URL Structure (path only, no root url)_>
+CUSTOMER------------
+localhost:8080/momentum-active/customers : GET
+localhost:8080/momentum-active/customer/{id} : GET 
+
+STORE------------
+localhost:8080/momentum-active/purchases : GET
+localhost:8080/momentum-active/purchase/{id} : GET 
+localhost:8080/momentum-active/purchase : POST
 
 * **Method:**
   
-  <_The request type_>
-
   `GET` | `POST` | `DELETE` | `PUT`
   
 *  **URL Params**
@@ -19,33 +40,42 @@
    **Required:**
  
    `id=[integer]`
-
-   **Optional:**
- 
-   `photo_id=[alphanumeric]`
-
+   
 * **Data Params**
 
-  <_If making a post request, what should the body payload look like? URL Params rules apply here too._>
+
 
 * **Success Response:**
   
   <_What should the status code be on success and is there any returned data? This is useful when people need to to know what their callbacks should expect!_>
 
   * **Code:** 200 <br />
-    **Content:** `{ id : 12 }`
+    **Content:** `[
+    {
+        "id": "Sajal",
+        "name": "IV",
+        "activeDays": 60,
+        "points": 90
+    },
+    {
+        "id": "Lokesh",
+        "name": "V",
+        "activeDays": 77,
+        "points": 98
+    }
+]`
  
 * **Error Response:**
 
   <_Most endpoints will have many ways they can fail. From unauthorized access, to wrongful parameters etc. All of those should be liste d here. It might seem repetitive, but it helps prevent assumptions from being made where they should be._>
 
-  * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error : "Log in" }`
+  * **Code:** 500 <br />
+    **Content:** `{ error : "Internal Server Error" }`
 
-  OR
+ Error Response:
 
-  * **Code:** 422 UNPROCESSABLE ENTRY <br />
-    **Content:** `{ error : "Email Invalid" }`
+Code: 401 UNAUTHORIZED
+Content: { error : "You are unauthorized to make this request." }
 
 * **Sample Call:**
 
