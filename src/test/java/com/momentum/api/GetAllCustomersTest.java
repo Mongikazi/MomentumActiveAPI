@@ -7,9 +7,9 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 
 public class GetAllCustomersTest {
-
     @Test
     public void TestGetAllCustomers() throws IOException {
+
         Assert.assertEquals(true, new GetAllCustomers().getAllCustomers().size() > 0);
     }
 }

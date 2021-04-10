@@ -9,6 +9,7 @@ import java.io.IOException;
 public class GetAllProductsTest {
     @Test
     public void TestGetAllProducts() throws IOException {
+
         Assert.assertEquals(true, new GetAllProducts().getAllProducts().size() > 0);
     }
 }
