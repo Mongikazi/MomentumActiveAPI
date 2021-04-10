@@ -3,17 +3,7 @@
   HOW TO DO IT
 -----------------------------------------------------------
 
-Create java maven project : MongoDB Service
-This project will setup a connection to a mongodb,
-Will setup the actual data manipulation with the database
 
-Create java maven project : StoreService
-This Project will create the api, all the endpoints
-API Functions and routes, 
-
-Create java maven project : DomainDriven Service
-This project will create the integration, should this be required to 
-For the api to be able to speak to the database in a form of a service
 
 * **URL**
 PRODUCT------------
