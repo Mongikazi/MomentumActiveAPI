@@ -9,12 +9,12 @@ public class Product {
     private String code;
     @ApiModelProperty(notes = "Product Name",name="name",required=true,value="test name")
     private String name;
-    @ApiModelProperty(notes = "Product Description",name="description",required=true,value="description name")
+    @ApiModelProperty(notes = "Product Description", name = "description", required = true, value = "description name")
     private String description;
-    @ApiModelProperty(notes = "Product price",name="price",required=true,value="test price")
-    private int price;
+    @ApiModelProperty(notes = "Product price", name = "price", required = true, value = "test price")
+    private String price;
 
-    public Product(String id, String code, String name, String description, int price) {
+    public Product(String id, String code, String name, String description, String price) {
         super();
         this.id = id;
         this.code = code;
@@ -55,11 +55,11 @@ public class Product {
         this.description = description;
     }
 
-    public int getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
@@ -73,4 +73,5 @@ public class Product {
                 ", price=" + price +
                 '}';
     }
+
 }

@@ -16,12 +16,31 @@
 	<description>API Project</description>
 
 	<properties>
+		<maven-compiler-plugin.source>8</maven-compiler-plugin.source>
+		<maven-compiler-plugin.target>8</maven-compiler-plugin.target>
+		<mongodb-driver-sync.version>3.11.0</mongodb-driver-sync.version>
+		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongodb-driver-sync</artifactId>
+			<version>${mongodb-driver-sync.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.12.2</version>
+		</dependency>
+		<dependency>
+			<groupId>net.morimekta.providence</groupId>
+			<artifactId>providence-core-jackson</artifactId>
+			<version>2.7.0</version>
+		</dependency>
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
@@ -77,6 +96,15 @@
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<source>${maven-compiler-plugin.source}</source>
+					<target>${maven-compiler-plugin.target}</target>
 				</configuration>
 			</plugin>
 		</plugins>
