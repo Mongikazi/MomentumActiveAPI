@@ -37,7 +37,7 @@ public class CustomerController {
     @ApiOperation(value = "Get specific Customer in the System ", response = Purchase.class, tags = "customer")
     @RequestMapping(value = "/customer/{id}")
     public Customer getCustomer(@PathVariable(value = "id") String id) throws IOException {
-        return getAllCustomers().stream().filter(x -> x.getId().equalsIgnoreCase(id)).collect(Collectors.toList()).get(0);
+        return getCustomers().stream().filter(x -> x.getId().equalsIgnoreCase(id)).collect(Collectors.toList()).get(0);
     }
 
     private List<Customer> getAllCustomers() throws IOException {

@@ -2,19 +2,17 @@ package com.momentum.api.models;
 
 import io.swagger.annotations.ApiModelProperty;
 
-import java.util.List;
-
 public class Purchase {
     @ApiModelProperty(notes = "Purchase Id",name="id",required=true,value="test id")
     private String id;
 
-    @ApiModelProperty(notes = "Purchase made Customer",name="customer",required=true,value="test customer")
-    private Customer customer;
+    @ApiModelProperty(notes = "Purchase made Customer", name = "customer", required = true, value = "test customer")
+    private String customer;
 
-    @ApiModelProperty(notes = "List of Purchased Products",name="products",required=true,value="test products")
-    private List<Product> products;
+    @ApiModelProperty(notes = "List of Purchased Products", name = "products", required = true, value = "test products")
+    private String products;
 
-    public Purchase(String id, Customer customer, List<Product> products) {
+    public Purchase(String id, String customer, String products) {
         super();
         this.id = id;
         this.customer = customer;
@@ -29,19 +27,19 @@ public class Purchase {
         this.id = id;
     }
 
-    public Customer getCustomer() {
+    public String getCustomer() {
         return customer;
     }
 
-    public void setCustomer(Customer customer) {
+    public void setCustomer(String customer) {
         this.customer = customer;
     }
 
-    public List<Product> getProducts() {
+    public String getProducts() {
         return products;
     }
 
-    public void setProducts(List<Product> products) {
+    public void setProducts(String products) {
         this.products = products;
     }
 
