@@ -1,3 +1,6 @@
 Manifest-Version: 1.0
 Main-Class: com.momentum.api.ApiApplication
+Class-Path: <?xml version="1.0" encoding="UTF-8"?> <classpath> <classpat
+ hentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/> <cla
+ sspathentry kind="output" path="bin"/> </classpath>
 

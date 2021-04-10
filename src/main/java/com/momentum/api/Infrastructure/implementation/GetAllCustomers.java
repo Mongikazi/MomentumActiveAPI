@@ -12,14 +12,19 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 public class GetAllCustomers {
+    public Properties properties;
     public List<Customer> getAllCustomers() throws IOException {
         List<Customer> customersList = new ArrayList<>();
-        try (MongoClient mongoClient = MongoClients.create(System.getProperty("mongodb.uri"))) {
+        System.out.println(System.getProperty("mongodb.uri"));
+        try (MongoClient mongoClient = MongoClients.create(System.getProperty(getPropertyValue("mongodb.uri")))) {
             MongoDatabase momentumdb = mongoClient.getDatabase("momentumdb");
             MongoCollection<Document> customers = momentumdb.getCollection("Customer");
 
@@ -49,6 +54,7 @@ public class GetAllCustomers {
         return customersList;
     }
 
+
     private Customer toCustomer(Document document) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
@@ -56,5 +62,21 @@ public class GetAllCustomers {
         String jsonString = document.toJson();
         Customer customer = mapper.readValue(jsonString, Customer.class);
         return customer;
+    }
+
+    public String getPropertyValue(String filename) {
+        properties = new Properties();
+        try {
+            FileInputStream fileInput = new FileInputStream(System.getProperty("mongodb.uri")
+                    + "//src//test//resources//config/" + filename);
+            properties.load(fileInput);
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return filename;
     }
 }
