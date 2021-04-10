@@ -1,56 +1,66 @@
-**Title**
-----
-  <_Additional information about your API call. Try to use verbs that match both request type (fetching vs modifying) and plurality (one vs multiple)._>
+**REST-based service**
+----------------------------------------------------------
+  HOW TO RUN IT
+-----------------------------------------------------------
+1. Download war file
+2. java -jar <War name> from command line  : java -jar MomentumActiveAPI.war
+4. once this message is displayed "Tomcat started on port(s): 8080 (http)
+5. visit http://localhost:8080/api/swagger-ui.html#/
+6. Intergration tests are available here :
+ https://gold-station-135366.postman.co/workspace/My-Workspace~f025f041-c5cd-4fff-8abb-ac5af19fd65f/request/15320948-43726d64-cd26-4f78-bf4e-fcf944d1b82c
+
+
 
 * **URL**
+http://localhost:8080/api/swagger-ui.html#/ home url
 
-  <_The URL Structure (path only, no root url)_>
+PRODUCT------------
+http://localhost:8080/api/products
+http://localhost:8080/api/product/{id} 
+
+CUSTOMER------------
+http://localhost:8080/api/customers
+http://localhost:8080/api/customer/{id} 
+
+STORE------------
+http://localhost:8080/api/purchases
+http://localhost:8080/api/purchase/{id}
+localhost:8080/momentum-active/purchase : POST
 
 * **Method:**
   
-  <_The request type_>
-
   `GET` | `POST` | `DELETE` | `PUT`
   
-*  **URL Params**
-
-   <_If URL params exist, specify them in accordance with name mentioned in URL section. Separate into optional and required. Document data constraints._> 
-
-   **Required:**
- 
-   `id=[integer]`
-
-   **Optional:**
- 
-   `photo_id=[alphanumeric]`
-
-* **Data Params**
-
-  <_If making a post request, what should the body payload look like? URL Params rules apply here too._>
 
 * **Success Response:**
-  
-  <_What should the status code be on success and is there any returned data? This is useful when people need to to know what their callbacks should expect!_>
 
-  * **Code:** 200 <br />
-    **Content:** `{ id : 12 }`
+
+  * **Code:** 200 OK <br />
+    **Content:** `[
+    {
+        "id": "Sajal",
+        "name": "IV",
+        "activeDays": 60,
+        "points": 90
+    },
+    {
+        "id": "Lokesh",
+        "name": "V",
+        "activeDays": 77,
+        "points": 98
+    }
+]`
  
 * **Error Response:**
 
-  <_Most endpoints will have many ways they can fail. From unauthorized access, to wrongful parameters etc. All of those should be liste d here. It might seem repetitive, but it helps prevent assumptions from being made where they should be._>
+  * **Code:** 500 <br />
+    **Content:** `{ error : "Internal Server Error" }`
 
-  * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error : "Log in" }`
+ Error Response:
 
-  OR
+Code: 401 UNAUTHORIZED
+Content: { error : "You are unauthorized to make this request." }
 
-  * **Code:** 422 UNPROCESSABLE ENTRY <br />
-    **Content:** `{ error : "Email Invalid" }`
 
-* **Sample Call:**
 
-  <_Just a sample call to your endpoint in a runnable format ($.ajax call or a curl request) - this makes life easier and more predictable._> 
 
-* **Notes:**
-
-  <_This is where all uncertainties, commentary, discussion etc. can go. I recommend timestamping and identifying oneself when leaving comments here._> 
