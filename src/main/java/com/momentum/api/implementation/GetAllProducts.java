@@ -20,4 +20,10 @@ public class GetAllProducts {
         }
         return productsList;
     }
+
+    public List<com.momentum.api.models.Product> getAllProducts() throws IOException {
+        GetAllProducts getAllProducts = new GetAllProducts();
+        List<com.momentum.api.models.Product> products = getAllProducts.productsConverter(new com.momentum.api.Infrastructure.implementation.GetAllProducts().getAllProducts());
+        return products;
+    }
 }

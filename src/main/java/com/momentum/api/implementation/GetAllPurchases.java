@@ -21,4 +21,10 @@ public class GetAllPurchases {
         }
         return purchaseList;
     }
+
+    public List<com.momentum.api.models.Purchase> getAllPurchases() throws IOException {
+        GetAllPurchases getAllPurchases = new GetAllPurchases();
+        List<com.momentum.api.models.Purchase> purchases = getAllPurchases.purchasesConverter(new com.momentum.api.Infrastructure.implementation.GetAllPurchases().getAllPurchases());
+        return purchases;
+    }
 }

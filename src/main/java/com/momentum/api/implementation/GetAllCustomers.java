@@ -21,4 +21,10 @@ public class GetAllCustomers {
         }
         return customerList;
     }
+
+    public List<Customer> getAllCustomers() throws IOException {
+        GetAllCustomers getAllCustomers = new GetAllCustomers();
+        List<Customer> customers = getAllCustomers.customerConverter(new com.momentum.api.Infrastructure.implementation.GetAllCustomers().getAllCustomers());
+        return customers;
+    }
 }
