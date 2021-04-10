@@ -2,8 +2,8 @@
 ----------------------------------------------------------
   HOW TO RUN IT
 -----------------------------------------------------------
-1. Download jar file
-2. java -jav <Jar name> from command line
+1. Download war file
+2. java -jav <War name> from command line
 3. once this message is displayed "Tomcat started on port(s): 8080 (http)
 4. visit http://localhost:8080/api/swagger-ui.html#/
 5. Intergration tests are available here :
