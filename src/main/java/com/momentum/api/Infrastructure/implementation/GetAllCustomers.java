@@ -24,6 +24,9 @@ public class GetAllCustomers {
         List<Customer> customersList = new ArrayList<>();
         getPropertyValue("/application.properties");
         String connectionString = System.getProperty("mongodb.uri");
+        if(connectionString == null || connectionString.isEmpty()){
+            connectionString = "mongodb+srv://admin:Mongi2021@cluster0.wgqpd.mongodb.net/momentumdb?retryWrites=true&w=majority";
+        }
 
         System.out.println(connectionString);
         try (MongoClient mongoClient = MongoClients.create(connectionString)) {
